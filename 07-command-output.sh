@@ -1,5 +1,5 @@
 #!/bin/bash
 
-Date=$(date)
+Date=$(date +%F)
 
 echo "entered date is:$Date"
