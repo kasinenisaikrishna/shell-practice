@@ -2,4 +2,4 @@
 echo "all variables passed:$@"
 echo "no.of varibles passed:$#"
 echo "script name:$0"
-echo "dir:$pwd"
+echo "dir:$PWD"
