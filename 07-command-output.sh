@@ -1,3 +1,5 @@
 #!/bin/bash
 
-date
+Date=$(date)
+
+echo "entered date is:$Date"
