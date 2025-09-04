@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo ("please enter the number:")
+echo ("please enter the number:$1")
 read number
 if($number -ge 20){
     echo(entered number is:$number)
