@@ -1,8 +1,9 @@
 #!/bin/bash
 
-echo (please enter the number:$1)
-read number
-if($number -ge 20){
-    echo(entered number is:$number)
-}
-    echo(entered numner is:$number)
+number=$1
+if [ $number -gt 20 ]
+then
+    echo "Given number: $number is greater than 20"
+else
+    echo "Given number: $number is less than 20"
+fi
