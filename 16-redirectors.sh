@@ -25,7 +25,15 @@ validate(){
         echo -e "$2 is...$G SUCCESS $N" &>>$log_file
     fi
 }
+usage(){
+    echo -e "$R usage:: $N sudo sh 16-redirectors.sh package1 package2 ..."
+    exit 1
+}
 check_root
+if [ $# -eq 0 ]
+then
+    usage
+fi
 for package in $@ # $@ refers to all args passed to it
 do
     dnf list installed $package &>>$log_file
