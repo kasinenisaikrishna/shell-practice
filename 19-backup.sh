@@ -3,6 +3,7 @@
 source_dir=$1
 dest_dir=$2
 days=${3:-14}
+timestamp=$(date +%Y-%m-%d-%H-%M-%S)
 
 R="\e[31m"
 G="\e[32m"
@@ -17,6 +18,7 @@ usage()
 if [ $# -lt 2 ]
 then
     usage
+    exit 1
 fi
 
 if [ ! -d $source_dir ]
@@ -29,15 +31,18 @@ then
     echo "$dest_dir does not exist please check"
 fi
 
-files=$(find $source_dir -name "*.log" -mtime +14)
+files=$(find ${source_dir} -name "*.log" -mtime +14)
 
 echo "files: $files"
 
 if [ ! -z $files ]
 then
     echo "files found"
+    zip_file="$dest_dir/app-logs-$timestamp.zip"
+    find ${source_dir} -name "*.log" -mtime +14 | zip "$zip_file" -@
 else
     echo "no files older than $days"
 fi
+
 
 
